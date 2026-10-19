@@ -77,6 +77,7 @@ async function handleLogin() {
   isError.value = false
   try {
     await auth.login(email.value, password.value)
+    password.value = ''
     message.value = `Selamat datang, ${auth.user?.name}`
     activeTab.value = isOwner.value ? 'dashboard' : 'pos'
   } catch (err: any) {
@@ -86,10 +87,12 @@ async function handleLogin() {
 }
 
 async function handleLogout() {
+  email.value = ''
+  password.value = ''
+  message.value = ''
+  isError.value = false
   await auth.logout()
   activeTab.value = 'dashboard'
-  isError.value = false
-  message.value = ''
 }
 </script>
 
@@ -106,13 +109,13 @@ async function handleLogout() {
             alt="Mitra Tech"
             class="mx-auto mb-4 h-36 w-36 object-contain"
           />
-          <p class="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-secondary-foreground">Toko perlengkapan listrik</p>
+          <p class="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-black">Toko perlengkapan listrik</p>
           <h1 class="text-3xl font-bold tracking-tight text-foreground">Mitra Tech</h1>
           <p class="mt-2 text-sm text-muted-foreground">Kasir sederhana untuk usaha yang tumbuh.</p>
         </div>
 
         <div class="warm-card rounded-[24px] p-6 sm:p-8">
-          <div class="mb-6">
+          <div class="mb-6 text-center">
             <h2 class="text-xl font-bold">Selamat datang kembali</h2>
             <p class="mt-1 text-sm text-muted-foreground">Masuk untuk mulai mengelola tokomu.</p>
           </div>
