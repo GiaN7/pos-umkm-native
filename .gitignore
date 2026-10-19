@@ -1,0 +1,7 @@
+
+# File backup berisi data produksi: jangan di-commit
+backups/*
+!backups/.gitkeep
+
+frontend/node_modules/*
+frontend/.env.local
