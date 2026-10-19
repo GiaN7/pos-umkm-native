@@ -344,5 +344,5 @@
 .menu-rise-enter-from,
 .menu-rise-leave-to {
   opacity: 0;
-  transform: translate(-50%, 8px);
+  transform: translateY(8px);
 }
